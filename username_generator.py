@@ -34,6 +34,8 @@ def lowercase_transformations():
         print(line[0] + '+' + line.split()[1])              # john lennon -> j+lennon
         print(line[0] + line.split()[1])                    # john lennon -> jlennon
         print(line.split()[1]+line.split()[0])              # john lennon -> lennonjohn
+        print(line.split()[0] + '.' + line.split()[1])      # john lennon -> john.lennon
+        print(line.split()[1] + '.' + line.split()[0])      # john lennon -> lennon.john
 
 
 
