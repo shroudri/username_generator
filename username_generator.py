@@ -16,7 +16,7 @@ import argparse
 
 def generate_root_list_lowercase(wordlist):
     names = []
-    with open(wordlist) as f:                               # OPen file for processing
+    with open(wordlist) as f:                               # Open file for processing
         for line in f:
             names.append(line.strip().lower())
     return names
