@@ -31,6 +31,7 @@ def lowercase_transformations(names):
         print(line[0] + '_' + line.split()[1])              # john lennon -> j_lennon
         print(line[0] + '+' + line.split()[1])              # john lennon -> j+lennon
         print(line[0] + line.split()[1])                    # john lennon -> jlennon
+        print(line.split()[0]+line.split()[1])              # john lennon -> johnlennon
         print(line.split()[1]+line.split()[0])              # john lennon -> lennonjohn
         print(line.split()[0] + '.' + line.split()[1])      # john lennon -> john.lennon
         print(line.split()[1] + '.' + line.split()[0])      # john lennon -> lennon.john
@@ -47,6 +48,7 @@ def uppercase_transformations(names):
         print(firstWord[0].upper() + '_' + secondWord.capitalize())         # john lennon -> J_Lennon
         print(firstWord[0].upper() + '-' + secondWord.capitalize())         # john lennon -> J-Lennon
         print(firstWord[0].upper() + secondWord.capitalize())               # john lennon -> JLennon
+        print(firstWord.capitalize() + secondWord.capitalize())             # john lennon -> JohnLennon
         print(secondWord.capitalize() + firstWord.capitalize())             # john lennon -> LennonJohn
         print(firstWord.upper())                                            # john lennon -> JOHN
         print(secondWord.upper())                                           # john lennon -> LENNON
