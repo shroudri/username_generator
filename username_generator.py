@@ -15,17 +15,15 @@ import argparse
 
 
 def generate_root_list_lowercase(wordlist):
-    lowercaseFile = open("/tmp/lowercase", "w")             # Defining output file
-    with open(wordlist) as f:                                  # If output file is the input
-        lines = f.readlines()                               # Read all lines of the input
-        for line in lines:                                  
-            lowercaseFile.writelines(line.lower()) 
+    names = []
+    with open(wordlist) as f:                               # OPen file for processing
+        for line in f:
+            names.append(line.strip().lower())
+    return names
 
 
-def lowercase_transformations():
-    f = open("/tmp/lowercase", "r")
-    lines = f.readlines()
-    for line in lines:                                      # For every line of the file (for example one line: John Lennon)
+def lowercase_transformations(names):
+    for line in names:
         print(line.split()[0])                              # john lennon -> john
         print(line.split()[1])                              # john lennon -> lennon
         print(line[0] + '.' + line.split()[1])              # john lennon -> j.lennon
@@ -39,10 +37,8 @@ def lowercase_transformations():
 
 
 
-def uppercase_transformations():
-    f = open("/tmp/lowercase", "r")
-    lines = f.readlines()
-    for line in lines:
+def uppercase_transformations(names):
+    for line in names:
         firstWord = line.split()[0]
         secondWord = line.split()[1]
         print(firstWord.capitalize())                                       # john lennon -> John
@@ -66,14 +62,8 @@ parser.add_argument('-u', '--uppercase', action='store_true', help='Also produce
 
 args = parser.parse_args()
 
-if args.uppercase is False:
-    file = args.wordlist
-    generate_root_list_lowercase(file)
-    lowercase_transformations()
-elif args.uppercase is True:
-    file = args.wordlist
-    generate_root_list_lowercase(file)
-    lowercase_transformations()
-    uppercase_transformations()
-else:
-    exit()
+names = generate_root_list_lowercase(args.wordlist)
+lowercase_transformations(names)
+
+if args.uppercase:
+    uppercase_transformations(names)
